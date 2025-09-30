@@ -8,7 +8,7 @@ import PageBanner from "../Componnents/PageBanner";
 import ServiceCard from "../Componnents/ServiceCard";
 import { serviceDetails } from "../data/ServiceData";
 
-const ServicesPage = () => {
+const Services = () => {
   const services = Object.entries(serviceDetails || {});
 
   return (
@@ -59,4 +59,4 @@ const ServicesPage = () => {
   );
 };
 
-export default ServicesPage;
+export default Services;

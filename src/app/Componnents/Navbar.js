@@ -11,9 +11,9 @@ const Navbar = () => {
 
   const pages = [
     { name: "Home", icon: <AiFillHome size={20} />, path: "/" },
-    { name: "About Us", icon: <AiOutlineInfoCircle size={20} />, path: "/about" },
-    { name: "Services", icon: <AiOutlineAppstore size={20} />, path: "/services"  },
-    { name: "Contact Us", icon: <AiOutlineMail size={20} />, path: "/contact" },
+    { name: "About Us", icon: <AiOutlineInfoCircle size={20} />, path: "/About" },
+    { name: "Services", icon: <AiOutlineAppstore size={20} />, path: "/Services"  },
+    { name: "Contact Us", icon: <AiOutlineMail size={20} />, path: "/ContactUs" },
   ];
   const handleNavigation = (page) => {
     setActiveTab(page.name);

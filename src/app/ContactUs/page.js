@@ -24,7 +24,7 @@ const contactHighlights = [
   },
 ];
 
-const ContactPage = () => {
+const ContactUs = () => {
   return (
     <div>
       <TopHeader />
@@ -166,4 +166,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default ContactUs;
