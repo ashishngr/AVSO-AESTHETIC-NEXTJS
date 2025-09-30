@@ -24,7 +24,6 @@ const ethosHighlights = [
       "Expect private lounges, collaborative planning, and post-care support designed around your lifestyle.",
   },
 ];
-
 const milestones = [
   {
     number: "12+",
