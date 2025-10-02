@@ -81,7 +81,7 @@ const Footer = () => {
             </p>
             <div className="space-y-3 text-sm text-white/60">
               <p className="flex items-center gap-3">
-                <span aria-hidden>📍</span>Sector 104, Noida, Uttar Pradesh
+                <span aria-hidden>📍</span>Street 76 Market ctor 76 Near Silicon City, Sector 76, Noida, Uttar Pradesh 201303
               </p>
               <p className="flex items-center gap-3">
                 <span aria-hidden>📞</span>

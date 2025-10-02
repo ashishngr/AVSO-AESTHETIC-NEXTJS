@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 
 const RECAPTCHA_SRC = "https://www.google.com/recaptcha/api.js?render=explicit";
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+console.log("site key", SITE_KEY);
 
 const ContactUsForm = () => {
   const recaptchaRef = useRef(null);
@@ -11,22 +12,34 @@ const ContactUsForm = () => {
     if (!SITE_KEY || !recaptchaRef.current) return;
 
     const renderRecaptcha = () => {
-      if (!window.grecaptcha || !recaptchaRef.current) return;
-      const hasChild = recaptchaRef.current.childElementCount > 0;
-      if (!hasChild) {
-        window.grecaptcha.render(recaptchaRef.current, {
-          sitekey: SITE_KEY,
-        });
+      const client = window.grecaptcha?.render
+        ? window.grecaptcha
+        : window.grecaptcha?.enterprise;
+
+      if (!client || !recaptchaRef.current) return;
+      if (recaptchaRef.current.childElementCount > 0) return;
+
+      client.render(recaptchaRef.current, {
+        sitekey: SITE_KEY,
+      });
+    };
+
+    const ensureReady = () => {
+      if (window.grecaptcha?.ready) {
+        window.grecaptcha.ready(renderRecaptcha);
+      } else {
+        renderRecaptcha();
       }
     };
 
     if (window.grecaptcha) {
-      renderRecaptcha();
+      ensureReady();
       return;
     }
 
+    let scriptEl;
     const existing = document.querySelector(`script[src="${RECAPTCHA_SRC}"]`);
-    const handleLoad = () => renderRecaptcha();
+    const handleLoad = () => ensureReady();
 
     if (existing) {
       existing.addEventListener("load", handleLoad);
@@ -37,10 +50,12 @@ const ContactUsForm = () => {
       script.defer = true;
       script.onload = handleLoad;
       document.body.appendChild(script);
+      scriptEl = script;
     }
 
     return () => {
       if (existing) existing.removeEventListener("load", handleLoad);
+      if (scriptEl) scriptEl.onload = null;
     };
   }, []);
 
