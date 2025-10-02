@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from "react";
 
 const RECAPTCHA_SRC = "https://www.google.com/recaptcha/api.js?render=explicit";
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-console.log("site key", SITE_KEY);
 
 const ContactUsForm = () => {
   const recaptchaRef = useRef(null);
