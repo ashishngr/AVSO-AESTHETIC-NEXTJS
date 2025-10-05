@@ -1,68 +1,59 @@
 import React from "react";
-import { RiTwitterXFill } from "react-icons/ri";
 import { RiInstagramLine } from "react-icons/ri";
 import { RiFacebookFill } from "react-icons/ri";
-
-const sections = [
-  {
-    heading: "Hair Care Services",
-    links: [
-      "Hair Transplant",
-      "FUT Hair Transplant",
-      "FUE Hair Transplant",
-      "Hair Loss Treatment",
-      "Hair Fall Treatment",
-      "PRP for Hair Loss",
-      "GFC Hair Treatment",
-    ],
-  },
-  {
-    heading: "Laser Treatments",
-    links: [
-      "Laser Hair Reduction",
-      "Skin Rejuvenation",
-      "Stretch Mark Removal",
-      "Acne Scar Treatment",
-      "Birthmark Removal",
-      "Skin Tag Removal",
-    ],
-  },
-  {
-    heading: "Facial Aesthetics",
-    links: [
-      "BB Glow",
-      "Botox & Dermal Fillers",
-      "Glutathione Treatment",
-      "Dark Circle Therapy",
-    ],
-  },
-  {
-    heading: "Body Aesthetics",
-    links: ["Tummy Tuck", "Liposuction", "Laser Hair Removal"],
-  },
-];
+import { serviceDetails } from "../data/ServiceData";
 
 const timings = [
-  { day: "Monday", time: "9:30 AM – 9:30 PM" },
-  { day: "Tuesday", time: "9:30 AM – 9:30 PM" },
-  { day: "Wednesday", time: "9:30 AM – 9:30 PM" },
-  { day: "Thursday", time: "9:30 AM – 9:30 PM" },
-  { day: "Friday", time: "9:30 AM – 9:30 PM" },
-  { day: "Saturday", time: "9:30 AM – 7:30 PM" },
-  { day: "Sunday", time: "By appointment" },
+  { day: "Monday", time: "10:30 AM – 7:30 PM" },
+  { day: "Tuesday", time: "10:30 AM – 7:30 PM" },
+  { day: "Wednesday", time: "10:30 AM – 7:30 PM" },
+  { day: "Thursday", time: "10:30 AM – 7:30 PM" },
+  { day: "Friday", time: "10:30 AM – 7:30 PM" },
+  { day: "Saturday", time: "10:30 AM – 7:30 PM" },
+  { day: "Sunday", time: "10:30 AM – 7:30 PM" },
 ];
 
 const contactInfo = [
-  "Street 76 Market ctor 76 Near Silicon City, Sector 76, Noida, Uttar Pradesh 201303",
+  "G-19, Street 76, Sector 76 Near Silicon City, Sector 76, Noida, Uttar Pradesh 201303",
   "+91 8800586733",
   "avsoaesthetic@gmail.com",
 ];
 const pages = [
   { label: "Home", href: "/" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/About" },
+  { label: "Services", href: "/Services" },
+  { label: "Contact", href: "/ContactUs" },
+];
+
+const categoryOrder = [
+  "Skin & Dermatology",
+  "Laser & Light Therapies",
+  "Facial Glow Rituals",
+  "Body Contouring",
+  "Advanced Aesthetics",
+  "Grooming Lounge",
+];
+
+const servicesByCategory = Object.entries(serviceDetails).reduce(
+  (acc, [slug, details]) => {
+    const category = details.category || "Other";
+    if (!acc[category]) acc[category] = [];
+    acc[category].push({
+      label: details.name,
+      href: `/Services#${slug}`,
+    });
+    return acc;
+  },
+  {}
+);
+
+const orderedServiceSections = [
+  ...categoryOrder
+    .filter((category) => servicesByCategory[category]?.length)
+    .map((category) => ({ heading: category, links: servicesByCategory[category] })),
+  ...Object.keys(servicesByCategory)
+    .filter((category) => !categoryOrder.includes(category))
+    .map((category) => ({ heading: category, links: servicesByCategory[category] })),
 ];
 
 const Footer = () => {
@@ -81,7 +72,7 @@ const Footer = () => {
             </p>
             <div className="space-y-3 text-sm text-white/60">
               <p className="flex items-center gap-3">
-                <span aria-hidden>📍</span>Street 76 Market ctor 76 Near Silicon City, Sector 76, Noida, Uttar Pradesh 201303
+                <span aria-hidden>📍</span>G-19, Street 76, Sector 76, Near Silicon City, Sector 76, Noida, Uttar Pradesh 201303
               </p>
               <p className="flex items-center gap-3">
                 <span aria-hidden>📞</span>
@@ -151,14 +142,33 @@ const Footer = () => {
           </div>
 
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {sections.map(({ heading, links }) => (
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
+                Pages
+              </h3>
+              <ul className="space-y-2 text-sm text-white/60">
+                {pages.map(({ label, href }) => (
+                  <li key={href}>
+                    <a href={href} className="transition-colors hover:text-white">
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {orderedServiceSections.map(({ heading, links }) => (
               <div key={heading} className="space-y-4">
                 <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
                   {heading}
                 </h3>
                 <ul className="space-y-2 text-sm text-white/60">
-                  {links.map((entry) => (
-                    <li key={entry}>{entry}</li>
+                  {links.map(({ label, href }) => (
+                    <li key={href}>
+                      <a href={href} className="transition-colors hover:text-white">
+                        {label}
+                      </a>
+                    </li>
                   ))}
                 </ul>
               </div>

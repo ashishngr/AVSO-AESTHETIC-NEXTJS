@@ -1,6 +1,21 @@
 // lib/serviceDetails.js
+import LaserHairReduction from "../../source/LaserHairReduction.jpeg";
+import HydraFacial from '../../source/HydraFacial.jpeg';
+import CarbonFacial from '../../source/CarbonFacial.jpeg';
+import PhotoFacial from '../../source/PhotoFacial.jpeg';
+import TatooRemoval from '../../source/TatooRemoval.jpeg';
+import CryoTreatment from '../../source/CryoTreatment.jpeg';
+import MSculpt from '../../source/MSculpt.jpeg';
+import FatFreezing from '../../source/FatFreezing.jpeg';
+import MoleRemoval from '../../source/MoleRemoval.jpeg';
+import ChemicalPeelRemoval from '../../source/ChemicalPeelRemoval.jpeg';
+import PRPTreatment from '../../source/PRPTreatment.jpeg'
+import HIFVTreatment from '../../source/HIFVTreatment.jpeg';
+import BotoxTreatement from '../../source/BotoxTreatment.jpeg'; 
+
 export const serviceDetails = {
   "skin-treatments": {
+    category: "Skin & Dermatology",
     name: "Skin Treatments",
     image: "/images/services/skin-treatments.jpg",
     introduction:
@@ -34,8 +49,9 @@ export const serviceDetails = {
   },
 
   "laser-hair-reduction": {
+    category: "Laser & Light Therapies",
     name: "Laser Hair Reduction",
-    image: "/images/services/laser-hair-reduction.jpg",
+    image: LaserHairReduction.src,
     introduction:
       "Long-term hair reduction using advanced, skin-type–matched laser parameters.",
     idealFor: [
@@ -67,8 +83,9 @@ export const serviceDetails = {
   },
 
   "hydra-facial": {
+    category: "Facial Glow Rituals",
     name: "Hydra Facial",
-    image: "/images/services/hydra-facial.jpg",
+    image: HydraFacial.src,
     introduction:
       "Deep cleanse, exfoliation, extraction and serum infusion for instant glow.",
     idealFor: ["Dull/dehydrated skin", "Congestion", "Pre-event refresh"],
@@ -95,8 +112,9 @@ export const serviceDetails = {
   },
 
   "carbon-facial": {
+    category: "Facial Glow Rituals",
     name: "Carbon Facial",
-    image: "/images/services/carbon-facial.jpg",
+    image: CarbonFacial.src,
     introduction:
       "Laser + carbon mask synergy to refine pores and improve clarity.",
     idealFor: ["Oily/congested skin", "Pores", "Mild pigmentation/dullness"],
@@ -122,38 +140,10 @@ export const serviceDetails = {
     result: "Clearer look immediately; best in 3–6 sessions, 3–4 weeks apart.",
   },
 
-  "rf-facial": {
-    name: "RF Facial",
-    image: "/images/services/rf-facial.jpg",
-    introduction:
-      "Radiofrequency tightening to support firmness and texture with comfort.",
-    idealFor: ["Mild laxity", "Fine lines", "Early jowling/texture"],
-    howItWorks:
-      "Controlled RF heats dermis to stimulate collagen remodeling without injuring surface.",
-    precare: [
-      "Hydrate well; avoid tanning 1 week.",
-      "No fillers on the same day; disclose recent procedures.",
-      "Remove metal jewelry; arrive makeup-free.",
-    ],
-    postCare: [
-      "SPF 30+ daily; gentle skincare.",
-      "Avoid hot environments/exercise for 24h.",
-      "Expect mild warmth/tenderness for a day.",
-    ],
-    benefits: [
-      "Subtle tightening",
-      "Texture refinement over weeks",
-      "Comfortable, no needles",
-    ],
-    sessionTime: "30–60 min",
-    downTime: "None; transient warmth/redness (hours)",
-    result:
-      "Builds gradually over 4–12 weeks; often 3–6 sessions; maintenance quarterly/biannual.",
-  },
-
   "photo-facial": {
+    category: "Laser & Light Therapies",
     name: "Photo Facial",
-    image: "/images/services/photo-facial.jpg",
+    image: PhotoFacial.src,
     introduction:
       "Light-based rejuvenation (e.g., IPL) to even tone and improve clarity.",
     idealFor: ["Sun damage", "Redness", "Mild pigmentation/dullness"],
@@ -181,8 +171,9 @@ export const serviceDetails = {
   },
 
   "tattoo-removal": {
+    category: "Laser & Light Therapies",
     name: "Tattoo Removal",
-    image: "/images/services/tattoo-removal.jpg",
+    image: TatooRemoval.src,
     introduction:
       "Advanced lasers to progressively fade unwanted tattoo ink safely.",
     idealFor: ["Professional/amateur tattoos", "Partial cover-up plans"],
@@ -210,8 +201,9 @@ export const serviceDetails = {
   },
 
   "cryo-treatment": {
+    category: "Skin & Dermatology",
     name: "Cryo Treatment",
-    image: "/images/services/cryo-treatment.jpg",
+    image: CryoTreatment.src,
     introduction:
       "Targeted cold therapy for benign skin concerns with minimal downtime.",
     idealFor: ["Warts/skin tags", "Seborrheic keratoses", "Benign lesions"],
@@ -238,8 +230,9 @@ export const serviceDetails = {
   },
 
   "m-sculpt": {
+    category: "Body Contouring",
     name: "M-Sculpt",
-    image: "/images/services/m-sculpt.jpg",
+    image: MSculpt.src,
     introduction:
       "High-intensity EMS to strengthen and tone targeted muscle groups.",
     idealFor: ["Core/glutes/arms/thighs toning", "Posture support"],
@@ -267,8 +260,9 @@ export const serviceDetails = {
   },
 
   "fat-freezing": {
+    category: "Body Contouring",
     name: "Fat Freezing",
-    image: "/images/services/fat-freezing.jpg",
+    image: FatFreezing.src,
     introduction:
       "Non-surgical spot reduction via controlled cooling (cryolipolysis).",
     idealFor: ["Local bulges (abdomen, flanks, thighs, arms, chin)"],
@@ -296,8 +290,9 @@ export const serviceDetails = {
   },
 
   "mole-removal": {
+    category: "Skin & Dermatology",
     name: "Mole Removal",
-    image: "/images/services/mole-removal.jpg",
+    image: MoleRemoval.src,
     introduction:
       "Safe removal using scar-aware techniques after clinical evaluation.",
     idealFor: ["Benign moles/skin tags causing concern or friction"],
@@ -325,8 +320,9 @@ export const serviceDetails = {
   },
 
   "chemical-peels": {
+    category: "Skin & Dermatology",
     name: "Chemical Peels",
-    image: "/images/services/chemical-peels.jpg",
+    image: ChemicalPeelRemoval.src,
     introduction:
       "Medical-grade peels to brighten, smooth and refine acne-prone or uneven skin.",
     idealFor: ["Acne/marks", "Dullness", "Pigmentation", "Texture"],
@@ -354,8 +350,9 @@ export const serviceDetails = {
   },
 
   "prp-treatment": {
+    category: "Advanced Aesthetics",
     name: "PRP Treatment",
-    image: "/images/services/prp-treatment.jpg",
+    image: PRPTreatment.src,
     introduction:
       "Platelet-rich plasma to support skin quality and hair density.",
     idealFor: ["Early hair thinning", "Texture/fine lines", "Under-eye quality"],
@@ -383,8 +380,9 @@ export const serviceDetails = {
   },
 
   "hifu-treatment": {
+    category: "Advanced Aesthetics",
     name: "HIFU Treatment",
-    image: "/images/services/hifu-treatment.jpg",
+    image: HIFVTreatment,
     introduction:
       "Focused ultrasound for lifting/tightening with natural-looking results.",
     idealFor: ["Mild–moderate laxity", "Jawline/neck lift", "Brow/cheek lift"],
@@ -412,8 +410,9 @@ export const serviceDetails = {
   },
 
   botox: {
+    category: "Advanced Aesthetics",
     name: "Botox",
-    image: "/images/services/botox.jpg",
+    image: BotoxTreatement.src,
     introduction:
       "Precision anti-wrinkle injections to soften expression lines.",
     idealFor: ["Frown lines", "Crow’s feet", "Forehead lines"],
@@ -439,122 +438,9 @@ export const serviceDetails = {
     result: "Effect in 3–7 days; lasts ~3–4 months; maintenance needed.",
   },
 
-  fillers: {
-    name: "Fillers",
-    image: "/images/services/fillers.jpg",
-    introduction:
-      "Hyaluronic acid fillers to lift, contour and hydrate with balance.",
-    idealFor: ["Cheeks/lips/chin/jawline", "Under-eye hollows", "Lines/folds"],
-    howItWorks:
-      "Gel placed at precise depths restores volume/shape; reversible HA options available.",
-    precare: [
-      "Avoid alcohol/blood thinners 24–48h if advised.",
-      "Arrive makeup-free; discuss goals/photos.",
-      "No active skin infections.",
-    ],
-    postCare: [
-      "Swelling/bruising 2–7 days possible.",
-      "Cold compress first 24h; sleep elevated.",
-      "Delay facials/sauna/workouts 24–48h.",
-    ],
-    benefits: [
-      "Immediate enhancement",
-      "Customizable, reversible (HA)",
-      "Natural, anatomy-led results",
-    ],
-    sessionTime: "20–45 min",
-    downTime: "Swelling/bruising 2–7 days",
-    result:
-      "Immediate volume; settles 1–2 weeks; longevity ~6–18 months (product/area).",
-  },
-
-  "thread-lift": {
-    name: "Thread Lift",
-    image: "/images/services/thread-lift.jpg",
-    introduction:
-      "Minimally invasive lift using biostimulatory threads for refreshed contours.",
-    idealFor: ["Mild sagging", "Jawline/cheek/eyebrow support"],
-    howItWorks:
-      "Threads reposition tissues and stimulate collagen as they dissolve.",
-    precare: [
-      "Avoid blood thinners/alcohol 48h if advised.",
-      "No active acne/infections on track.",
-      "Discuss recent fillers/HIFU timing.",
-    ],
-    postCare: [
-      "Tenderness/dimpling possible 3–14 days.",
-      "Sleep on back; avoid wide mouth movements initially.",
-      "No facials/sauna/heavy workouts 1–2 weeks.",
-    ],
-    benefits: [
-      "Immediate lift + collagen over time",
-      "Tiny entry points",
-      "Customizable vectors",
-    ],
-    sessionTime: "30–60 min",
-    downTime: "Social downtime 3–7 days typical",
-    result:
-      "Lift visible immediately; collagen builds 3–6 months; lasts ~12–18 months.",
-  },
-
-  "permanent-glow": {
-    name: "Permanent Glow",
-    image: "/images/services/permanent-glow.jpg",
-    introduction:
-      "Protocol-based brightening for sustained radiance and smoothness.",
-    idealFor: ["Dullness", "Uneven tone", "Event prep/maintenance"],
-    howItWorks:
-      "Layered treatments (boosters/peels/light/RF) tailored to skin to enhance clarity and hydration.",
-    precare: [
-      "Pause actives 2–3 days unless advised.",
-      "Avoid tanning; SPF daily.",
-      "Arrive makeup-free.",
-    ],
-    postCare: [
-      "Hydrate + SPF; gentle routine for 2–3 days.",
-      "Avoid harsh scrubs/heat for 48h.",
-      "Follow booster/serum plan as prescribed.",
-    ],
-    benefits: [
-      "Radiance with minimal downtime",
-      "Customizable mix of modalities",
-      "Supports long-lasting freshness",
-    ],
-    sessionTime: "30–45 min",
-    downTime: "None to mild pinkness (hours)",
-    result:
-      "Glow in days; best as a 3–4 session program; maintenance every 4–8 weeks.",
-  },
-
-  "beauty-treatments": {
-    name: "Beauty Treatments",
-    image: "/images/services/beauty-treatments.jpg",
-    introduction:
-      "Routine grooming and relaxation therapies that complement clinical care.",
-    idealFor: ["Regular upkeep", "Event prep", "Self-care sessions"],
-    howItWorks:
-      "Curated protocols for cleansing, massage and finishing tailored to preferences.",
-    precare: [
-      "Share sensitivities/allergies.",
-      "Avoid retinoids 24–48h before if choosing exfoliation.",
-      "Arrive makeup-free for facials.",
-    ],
-    postCare: [
-      "Hydration + SPF if daytime.",
-      "Avoid new actives for 24h after exfoliating treatments.",
-      "Follow finishing product advice.",
-    ],
-    benefits: [
-      "Immediate refreshed look",
-      "Relaxation and maintenance",
-      "Pairs well with medical treatments",
-    ],
-    sessionTime: "30–90 min",
-    downTime: "None",
-    result: "Instant polish and comfort; ideal as periodic upkeep.",
-  },
 
   pedicure: {
+    category: "Grooming Lounge",
     name: "Pedicure",
     image: "/images/services/pedicure.jpg",
     introduction:
@@ -583,6 +469,7 @@ export const serviceDetails = {
   },
 
   manicure: {
+    category: "Grooming Lounge",
     name: "Manicure",
     image: "/images/services/manicure.jpg",
     introduction:

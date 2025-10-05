@@ -10,6 +10,27 @@ import { serviceDetails } from "../data/ServiceData";
 
 const Services = () => {
   const services = Object.entries(serviceDetails || {});
+  const categoryDescriptions = {
+    "Skin & Dermatology": "Restore clarity and resilience with dermatologist-designed care.",
+    "Laser & Light Therapies": "Harness advanced energy devices for smooth, even-toned skin and hair-free confidence.",
+    "Facial Glow Rituals": "Hydrating, resurfacing facials that deliver an instant, event-ready glow.",
+    "Body Contouring": "Shape, tone, and sculpt with non-surgical technologies tailored to your goals.",
+    "Advanced Aesthetics": "Targeted collagen and anti-ageing therapies for lifted, refined results.",
+    "Grooming Lounge": "Finishing touches that keep you polished from head to toe, every day.",
+  };
+
+  const groupedServices = services.reduce((acc, [slug, details]) => {
+    const category = details.category || "Other";
+    if (!acc[category]) acc[category] = [];
+    acc[category].push([slug, details]);
+    return acc;
+  }, {});
+
+  const categoryOrder = services
+    .map(([, details]) => details.category || "Other")
+    .filter((category, index, array) => array.indexOf(category) === index);
+
+  const serviceIndexMap = new Map(services.map(([slug], index) => [slug, index]));
 
   return (
     <div>
@@ -33,9 +54,32 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="space-y-12">
-            {services.map(([slug, details], index) => (
-              <ServiceCard key={slug} service={details} index={index} />
+          <div className="space-y-20">
+            {categoryOrder.map((category) => (
+              <section key={category} className="space-y-10">
+                <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-4 text-center">
+                  <span className="absolute inset-x-0 -top-6 hidden h-px bg-gradient-to-r from-transparent via-purple-200/80 to-transparent md:block" aria-hidden />
+                  <span className="inline-flex items-center gap-2 rounded-full border border-purple-200/60 bg-white/80 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.45em] text-purple-600 shadow-sm">
+                    {category}
+                  </span>
+                  {categoryDescriptions[category] && (
+                    <p className="max-w-2xl text-base leading-7 text-gray-600">
+                      {categoryDescriptions[category]}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-12">
+                  {groupedServices[category]?.map(([slug, details]) => (
+                    <ServiceCard
+                      key={slug}
+                      service={details}
+                      index={serviceIndexMap.get(slug) ?? 0}
+                      slug={slug}
+                    />
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
         </div>

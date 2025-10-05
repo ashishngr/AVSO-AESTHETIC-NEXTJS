@@ -240,8 +240,41 @@ export default function Home() {
     },
     {
       question: "Is the goal of your treatments to give a natural look?",
-      answer:
-        "Absolutely. We prioritise subtle, balanced enhancements that respect your natural features and align with medically safe outcomes.",
+    answer:
+      "Absolutely. We prioritise subtle, balanced enhancements that respect your natural features and align with medically safe outcomes.",
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Shruti Mehra",
+      service: "Hydra Facial",
+      message:
+        "I booked the Hydra Facial package before my wedding week and the glow genuinely lasted through every function. The team checked on me after each visit and kept the routine super simple.",
+    },
+    {
+      name: "Aditi Verma",
+      service: "Laser Hair Reduction",
+      message:
+        "Four sessions into Laser Hair Reduction and the regrowth has slowed dramatically. Sessions are quick, painless, and the therapists always tweak settings for my sensitive skin.",
+    },
+    {
+      name: "Neha Kulkarni",
+      service: "PRP Treatment",
+      message:
+        "Stress had thinned my hairline but PRP Treatment here made a visible difference. The doctor explained every step and I appreciated the scalp home-care plan they customised for me.",
+    },
+    {
+      name: "Rohan Chopra",
+      service: "M-Sculpt",
+      message:
+        "M-Sculpt gave me the core strength I was missing post lockdown. I pair it with their nutrition tips and I finally feel confident enough to get back on the basketball court.",
+    },
+    {
+      name: "Drishti Patel",
+      service: "Chemical Peels",
+      message:
+        "Working long hours under studio lights dulled my skin. Their Chemical Peels are gentle but so effective—no patchiness, just brighter, calmer skin within days.",
     },
   ];
 
@@ -332,7 +365,10 @@ export default function Home() {
               <p className="flex-1 min-w-[220px] text-left font-semibold text-gray-600">
                 {description}
               </p>
-              <button className="group inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 px-6 py-2.5 text-lg font-semibold text-white shadow-lg shadow-purple-500/30 transition-all duration-200 hover:-translate-y-0.5 hover:from-purple-500 hover:via-purple-400 hover:to-purple-600 hover:shadow-purple-400/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-400">
+              <a
+                href="/Services"
+                className="group inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 px-6 py-2.5 text-lg font-semibold text-white shadow-lg shadow-purple-500/30 transition-all duration-200 hover:-translate-y-0.5 hover:from-purple-500 hover:via-purple-400 hover:to-purple-600 hover:shadow-purple-400/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-400"
+              >
                 Know More
                 <span
                   aria-hidden="true"
@@ -340,7 +376,7 @@ export default function Home() {
                 >
                   →
                 </span>
-              </button>
+              </a>
             </div>
           ))}
         </div>
@@ -394,43 +430,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* CTA banner */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700 px-6 py-12">
-        <div
-          className="absolute -top-12 left-12 h-32 w-32 rounded-full bg-white/10 blur-3xl"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute -bottom-16 right-16 h-36 w-36 rounded-full bg-purple-400/30 blur-3xl"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-6 text-center text-white md:flex-row md:text-left">
-          <div>
-            <h3 className="text-3xl font-bold tracking-wide">
-              Book your appointment today!
-            </h3>
-            <p className="mt-2 text-sm font-bold text-white">
-              Just a click away to experience high quality aesthetic treatments.
-            </p>
-          </div>
-          <a
-            href="tel:+919741620538"
-            className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-2xl font-bold text-purple-700 shadow-lg shadow-purple-900/30 transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-purple-900/40"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="mr-2 h-5 w-5"
-              aria-hidden="true"
-            >
-              <path d="M2.25 6A3.75 3.75 0 0 1 6 2.25h1.5a.75.75 0 0 1 .75.75V7.5a.75.75 0 0 1-.429.682l-1.482.741a9.784 9.784 0 0 0 4.768 4.768l.741-1.482A.75.75 0 0 1 12.75 11h4.5a.75.75 0 0 1 .75.75V15a3.75 3.75 0 0 1-3.75 3.75h-.75C7.373 18.75 2.25 13.627 2.25 7.5V6Z" />
-            </svg>
-            +91 8800586733
-          </a>
-        </div>
-      </section>
-
       {/* Achievements */}
       <section className="relative mt-16 px-6">
         <div
@@ -460,6 +459,52 @@ export default function Home() {
                   {subtitle}
                 </p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="relative mt-20 overflow-hidden px-6 py-16">
+        <div
+          className="absolute inset-x-0 top-0 h-full bg-gradient-to-br from-purple-100 via-purple-50 to-amber-50"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -left-20 top-10 h-64 w-64 rounded-full bg-fuchsia-200/40 blur-3xl"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -right-10 bottom-0 h-72 w-72 rounded-full bg-purple-300/30 blur-3xl"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto w-full max-w-6xl">
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-purple-700">
+              Client Stories
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-purple-900">
+              Real experiences from the AVSO community
+            </h2>
+            <p className="mx-auto mt-3 max-w-3xl text-sm leading-7 text-gray-700">
+              Every review is from a guest who completed the treatment listed below. No stock photos, just honest reflections of what it felt like to trust us with their skin, hair, or body goals.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {testimonials.map(({ name, service, message }) => (
+              <article
+                key={`${name}-${service}`}
+                className="flex h-full flex-col justify-between gap-5 rounded-3xl border border-white/60 bg-white/95 p-6 shadow-[0_25px_55px_-35px_rgba(124,58,237,0.45)] backdrop-blur transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(124,58,237,0.5)]"
+              >
+                <div className="space-y-3">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-purple-200/60 bg-purple-50 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.35em] text-purple-600">
+                    {service}
+                  </span>
+                  <p className="text-sm leading-6 text-gray-700">“{message}”</p>
+                </div>
+                <p className="text-base font-semibold text-purple-900">{name}</p>
+              </article>
             ))}
           </div>
         </div>
@@ -515,7 +560,7 @@ export default function Home() {
             >
               <path d="M2.25 6A3.75 3.75 0 0 1 6 2.25h1.5a.75.75 0 0 1 .75.75V7.5a.75.75 0 0 1-.429.682l-1.482.741a9.784 9.784 0 0 0 4.768 4.768l.741-1.482A.75.75 0 0 1 12.75 11h4.5a.75.75 0 0 1 .75.75V15a3.75 3.75 0 0 1-3.75 3.75h-.75C7.373 18.75 2.25 13.627 2.25 7.5V6Z" />
             </svg>
-            +91 97416 20538
+            +91 8800586733
           </a>
         </div>
       </section>
@@ -541,6 +586,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* Footer */}
       <Footer />
 

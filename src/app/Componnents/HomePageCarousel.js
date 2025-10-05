@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import LandScapeLogo from "../../source/LandScapeLogo.png";
 
 const SlideBackgroundClinic = ({ className = "", ...props }) => (
   <svg
@@ -84,12 +87,14 @@ const HomePageCarousel = () => {
   const slides = useMemo(
     () => [
       {
-        heading: "AVSO AESTHESTIC & WELLNESS",
+        badge: "Trusted Clinic",
+        heading: "AVSO AESTHETIC & WELLNESS",
         paragraph:
           "AVSO Aesthetic and Wellness is a trusted clinic in Noida offering advanced, science-backed aesthetic and wellness solutions. We specialize in safe, effective treatments designed to enhance natural beauty and overall well-being.",
-        Background: SlideBackgroundClinic,
+        image: LandScapeLogo,
       },
       {
+        badge: "Signature Treatments",
         heading: "Get the Beauty Crown that you will never take off",
         paragraph:
           "AVSO AESTHESTIC & WELLNESS helps you get smooth of contour irregularities, particularly a bump in the dorsum of the nose. Get a detailed assessment & personalised Rhinoplasty plan at Livglam Aesthetic clinic.",
@@ -121,7 +126,7 @@ const HomePageCarousel = () => {
 
   return (
     <section
-      className="w-full relative bg-white"
+      className="relative w-full overflow-hidden bg-gradient-to-b from-white via-purple-50/40 to-white"
       onMouseEnter={stop}
       onMouseLeave={start}
     >
@@ -136,46 +141,54 @@ const HomePageCarousel = () => {
           return (
             <article
               key={i}
-              className="relative w-full flex-shrink-0 shadow-sm"
+              className="relative w-full flex-shrink-0"
               aria-hidden={current !== i}
             >
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-6 -bottom-6 h-16 rounded-full bg-purple-400/25 blur-3xl"
-              />
               {/* Slide body */}
-              <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+              <div className="mx-auto max-w-[1440px] grid grid-cols-1 items-center gap-6 px-4 py-12 transition-opacity duration-700 ease-out sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12 lg:py-16">
                 {/* Left: content */}
-                <div className="order-2 lg:order-1">
-                  <h2 className="text-2xl sm:text-3xl lg:text-[28px] font-semibold text-gray-800 leading-snug">
+                <div className="order-2 flex flex-col gap-6 rounded-3xl bg-white/80 p-6 shadow-[0_35px_60px_-25px_rgba(124,58,237,0.35)] backdrop-blur-sm transition-all duration-700 lg:order-1 lg:p-8">
+                  {s.badge && (
+                    <span className="inline-flex items-center justify-center rounded-full bg-purple-100 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-purple-700">
+                      {s.badge}
+                    </span>
+                  )}
+                  <h2 className="text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl lg:text-[34px]">
                     {s.heading}
                   </h2>
 
-                  <p className="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">
+                  <p className="text-base leading-relaxed text-slate-600 sm:text-lg">
                     {s.paragraph}
                   </p>
 
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <Button className="bg-[#6B21A8] hover:bg-[#581c87] text-white">
-                      READ MORE
+                  <div className="flex flex-wrap gap-3">
+                    <Button
+                      asChild
+                      className="bg-gradient-to-r from-purple-600 via-fuchsia-500 to-indigo-500 px-6 py-5 text-sm font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-purple-500/40 transition-transform duration-200 hover:-translate-y-0.5"
+                    >
+                      <Link href="/Services">READ MORE</Link>
                     </Button>
                     <Button
+                      asChild
                       variant="outline"
-                      className="border-[#6B21A8] text-[#6B21A8] hover:bg-[#6B21A8] hover:text-white"
+                      className="border-purple-200 bg-white/70 px-6 py-5 text-sm font-bold uppercase tracking-[0.2em] text-purple-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-purple-500 hover:bg-purple-50"
                     >
-                      BOOK AN APPOINTMENT
+                      <Link href="/ContactUs">BOOK AN APPOINTMENT</Link>
                     </Button>
                   </div>
 
                   {/* Dots */}
-                  <div className="mt-8 flex items-center gap-2">
+                  <div className="flex items-center gap-2 pt-4">
                     {slides.map((_, dotIdx) => (
                       <button
                         key={dotIdx}
                         aria-label={`Go to slide ${dotIdx + 1}`}
+                        aria-current={current === dotIdx}
                         onClick={() => setCurrent(dotIdx)}
-                        className={`h-1.5 rounded-full transition-all ${
-                          current === dotIdx ? "w-4 bg-gray-800" : "w-1.5 bg-gray-400/60"
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          current === dotIdx
+                            ? "w-8 bg-gradient-to-r from-purple-600 to-indigo-500"
+                            : "w-3 bg-slate-300/70 hover:w-4 hover:bg-slate-400"
                         }`}
                       />
                     ))}
@@ -183,14 +196,37 @@ const HomePageCarousel = () => {
                 </div>
 
                 {/* Right: illustration */}
-                <div className="order-1 lg:order-2 relative">
-                  <div className="relative w-full h-[260px] sm:h-[320px] md:h-[380px] lg:h-[520px] overflow-hidden rounded-2xl">
-                    <Background aria-hidden="true" className="absolute inset-0" />
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/10 to-transparent mix-blend-screen"
-                    />
-                    <div className="relative h-full w-full" />
+                <div className="order-1 lg:order-2">
+                  <div className="relative flex h-[220px] w-full items-center justify-center overflow-hidden rounded-[28px] border border-white/60 bg-white/55 p-4 shadow-[0_45px_100px_-40px_rgba(79,70,229,0.45)] sm:h-[300px] sm:p-6 md:h-[380px] lg:h-[520px] lg:p-8">
+                    {s.image ? (
+                      <>
+                        <Image
+                          src={s.image}
+                          alt="AVSO aesthetic experience"
+                          fill
+                          priority={i === 0}
+                          className="object-contain"
+                          sizes="(min-width: 1024px) 520px, (min-width: 768px) 400px, 90vw"
+                        />
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/0 via-white/25 to-purple-100/30"
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <s.Background aria-hidden="true" className="absolute inset-0" />
+                        <div
+                          aria-hidden="true"
+                          className="absolute inset-0 bg-gradient-to-br from-white/15 via-white/10 to-purple-100/20"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(196,181,253,0.45),transparent_55%)]" />
+                      </>
+                    )}
+                    <div className="absolute inset-x-6 bottom-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white/90 px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-purple-700 shadow-lg">
+                      <span>Holistic Beauty Care</span>
+                      <span className="text-purple-400">Experience Calm</span>
+                    </div>
                   </div>
                 </div>
               </div>
