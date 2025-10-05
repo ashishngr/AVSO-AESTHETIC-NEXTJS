@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Logo from '../source/Logo.png';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +15,7 @@ export const metadata = {
   title: "AVSO AESTHETIC & WELLNESS",
   description: "Maintain by AVSO",
   icons: {
-    icon: Logo.src,
+    icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
