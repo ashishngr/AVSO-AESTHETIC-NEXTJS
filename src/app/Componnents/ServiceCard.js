@@ -84,12 +84,14 @@ const ServiceCard = ({ service, index, slug }) => {
         </div>
 
         <div className="flex w-full flex-col lg:flex-1 lg:pl-6">
-          <section className="flex flex-col gap-4 rounded-3xl border border-purple-100 bg-white shadow-sm shadow-purple-900/5 lg:p-8">
+          <section className="flex flex-col gap-4 rounded-3xl border border-purple-100 bg-white px-4 py-6 shadow-sm shadow-purple-900/5 sm:px-6 lg:p-8">
             <header className="space-y-4">
-              <span className="inline-block h-1 w-12 rounded-full bg-gradient-to-r from-purple-600 via-fuchsia-500 to-indigo-500" aria-hidden />
-              <h2 className="text-3xl font-semibold text-slate-900">{name}</h2>
+              <span className="mt-4 inline-block h-1 w-12 rounded-full bg-gradient-to-r from-purple-600 via-fuchsia-500 to-indigo-500" aria-hidden />
+              <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">{name}</h2>
               {introduction && (
-                <p className="text-base leading-7 text-slate-600">{introduction}</p>
+                <p className="text-sm leading-7 text-slate-600 sm:text-base">
+                  {introduction}
+                </p>
               )}
             </header>
 
