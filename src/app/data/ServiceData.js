@@ -12,12 +12,17 @@ import ChemicalPeelRemoval from '../../source/ChemicalPeelRemoval.jpeg';
 import PRPTreatment from '../../source/PRPTreatment.jpeg'
 import HIFVTreatment from '../../source/HIFVTreatment.jpeg';
 import BotoxTreatement from '../../source/BotoxTreatment.jpeg'; 
+import SkinTreatment from '../../source/SkinTreatment.jpeg';
+import Pedicure from '../../source/Pedicure.jpeg';
+import Medicure from '../../source/Medicure.jpeg';
+import BlowD from '../../source/BlowD.jpeg';
+import HairSpa from '../../source/HairSpa.jpeg';
 
 export const serviceDetails = {
   "skin-treatments": {
     category: "Skin & Dermatology",
     name: "Skin Treatments",
-    image: "/images/services/skin-treatments.jpg",
+    image: SkinTreatment.src,
     introduction:
       "Personalized, science-backed dermatology protocols for clear, healthy skin.",
     idealFor: [
@@ -382,7 +387,7 @@ export const serviceDetails = {
   "hifu-treatment": {
     category: "Advanced Aesthetics",
     name: "HIFU Treatment",
-    image: HIFVTreatment,
+    image: SkinTreatment.src,
     introduction:
       "Focused ultrasound for lifting/tightening with natural-looking results.",
     idealFor: ["Mild–moderate laxity", "Jawline/neck lift", "Brow/cheek lift"],
@@ -442,7 +447,7 @@ export const serviceDetails = {
   pedicure: {
     category: "Grooming Lounge",
     name: "Pedicure",
-    image: "/images/services/pedicure.jpg",
+    image: Pedicure.src,
     introduction:
       "Hygienic foot care with exfoliation, cuticle work and polished finish.",
     idealFor: ["Callus/dryness", "Grooming", "Relaxation"],
@@ -471,7 +476,7 @@ export const serviceDetails = {
   manicure: {
     category: "Grooming Lounge",
     name: "Manicure",
-    image: "/images/services/manicure.jpg",
+    image: Medicure.src,
     introduction:
       "Clean, elegant hand and nail care with a polished finish.",
     idealFor: ["Cuticle care", "Nail shaping", "Event-ready hands"],
@@ -499,7 +504,7 @@ export const serviceDetails = {
 
   "hair-spa": {
     name: "Hair Spa",
-    image: "/images/services/hair-spa.jpg",
+    image: HairSpa.src,
     introduction:
       "Scalp-first routines to nourish and improve hair feel and shine.",
     idealFor: ["Dry/itchy scalp", "Dull hair", "Stress relief"],
@@ -527,7 +532,7 @@ export const serviceDetails = {
 
   "blow-dry": {
     name: "Blow Dry",
-    image: "/images/services/blow-dry.jpg",
+    image: BlowD.src,
     introduction:
       "Smooth, long-lasting styling with heat protection and finish options.",
     idealFor: ["Events", "Frizz control", "Polished everyday look"],

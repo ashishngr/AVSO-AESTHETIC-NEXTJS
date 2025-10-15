@@ -1,3 +1,4 @@
+import Image from "next/image";
 import TopHeader from "../app/Componnents/TopHeader";
 import Navbar from "../app/Componnents/Navbar";
 import HomePageCarousel from "../app/Componnents/HomePageCarousel";
@@ -5,28 +6,36 @@ import Footer from "../app/Componnents/Footer";
 import Whatsapp from "../app/Componnents/Watsapp";
 import ContactButton from "../app/Componnents/ContactButton";
 import ContactUsForm from "../app/Componnents/ContactUsForm";
+import HydraFacialImage from "./../source/HydraFacial.jpeg";
+import LaserHairReductionImage from "./../source/LaserHairReduction.jpeg";
+import MSculptImage from "./../source/MSculpt.jpeg";
+import ChemicalPeelImage from "./../source/ChemicalPeelRemoval.jpeg";
 
 export default function Home() {
   const services = [
     {
-      title: "Body care",
+      title: "Hydra Facial",
       description:
-        "Desire for a more defined, toned and well-sculpted body and get the shape in which you look confident",
+        "Deep cleanse, exfoliation, extraction and serum infusion for instant glow that lasts through events and everyday routines.",
+      image: HydraFacialImage,
     },
     {
-      title: "Face Aesthetic",
+      title: "Laser Hair Reduction",
       description:
-        "Reveal the new face of you, restores facial symmetry and enhances facial features.",
+        "Comfort-first diode sessions customised to your skin tone and growth pattern for smoother, hair-free confidence.",
+      image: LaserHairReductionImage,
     },
     {
-      title: "Hair care",
+      title: "M-Sculpt",
       description:
-        "Regain your natural crown back with a healthy and strong hair",
+        "High-intensity EMS that sculpts abs, arms, and glutes by triggering supramaximal contractions you can’t achieve alone.",
+      image: MSculptImage,
     },
     {
-      title: "Skin care",
+      title: "Chemical Peels",
       description:
-        "Rejuvenate, redefine and recontour your skin with our latest anti-aging treatments",
+        "Medical-grade blends renew and brighten dull or acne-prone skin with minimal downtime and measurable clarity.",
+      image: ChemicalPeelImage,
     },
   ];
 
@@ -349,38 +358,53 @@ export default function Home() {
         <HomePageCarousel />
       </div>
       {/* Services */}
-      <div className="flex flex-col flex-wrap items-center justify-center mt-3 gap-4">
-        <h2 className="text-2xl font-bold">Our Popular Services</h2>
-        {/* Services */}
-        <div className="flex flex-row flex-wrap items-center justify-center gap-4 p-4">
-          {services.map(({ title, description }) => (
-            <div
-              key={title}
-              className="flex w-full max-w-4xl flex-wrap items-center gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-purple-100 md:flex-nowrap"
-            >
-              <div className="h-32 w-32 shrink-0 rounded-full bg-purple-700 ring-4 ring-purple-700 ring-offset-4 ring-offset-white" />
-              <h2 className="min-w-[160px] text-left text-xl font-bold text-purple-900">
-                {title}
-              </h2>
-              <p className="flex-1 min-w-[220px] text-left font-semibold text-gray-600">
-                {description}
-              </p>
-              <a
-                href="/Services"
-                className="group inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 px-6 py-2.5 text-lg font-semibold text-white shadow-lg shadow-purple-500/30 transition-all duration-200 hover:-translate-y-0.5 hover:from-purple-500 hover:via-purple-400 hover:to-purple-600 hover:shadow-purple-400/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-400"
+      <section className="mt-12 px-6">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-purple-600">
+              Our Popular Services
+            </p>
+            <h2 className="mt-2 text-3xl font-semibold text-purple-900">
+              Signature treatments loved by our clients
+            </h2>
+          </div>
+
+          <div className="space-y-10">
+            {services.map(({ title, description, image }) => (
+              <article
+                key={title}
+                className="group grid gap-6 overflow-hidden rounded-3xl bg-white/95 shadow-[0_25px_55px_-35px_rgba(124,58,237,0.35)] ring-1 ring-purple-100 transition-shadow duration-200 hover:shadow-[0_30px_70px_-30px_rgba(124,58,237,0.45)] md:grid-cols-[1.1fr_0.9fr]"
               >
-                Know More
-                <span
-                  aria-hidden="true"
-                  className="ml-2 transition-transform duration-200 group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </a>
-            </div>
-          ))}
+                <div className="overflow-hidden bg-purple-100">
+                  <Image
+                    src={image}
+                    alt={`${title} treatment at AVSO`}
+                    className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    priority={title === "Hydra Facial"}
+                  />
+                </div>
+
+                <div className="flex flex-col justify-between gap-5 p-6 sm:p-8">
+                  <div className="space-y-4">
+                    <span className="inline-block h-1 w-12 rounded-full bg-gradient-to-r from-purple-600 via-fuchsia-500 to-indigo-500" aria-hidden />
+                    <h3 className="text-2xl font-semibold text-purple-900 sm:text-3xl">{title}</h3>
+                    <p className="text-sm leading-7 text-gray-600 sm:text-base">
+                      {description}
+                    </p>
+                  </div>
+                  <a
+                    href="/Services"
+                    className="inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-purple-500/30 transition-transform duration-200 hover:-translate-y-0.5"
+                  >
+                    Explore More
+                    <span aria-hidden className="text-base">→</span>
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
       {/* Why choose us */}
       <section className="relative mt-16 overflow-hidden bg-[#fdf5d7] py-16">
         <div
@@ -548,7 +572,7 @@ export default function Home() {
             </p>
           </div>
           <a
-            href="tel:+919741620538"
+            href="tel:+918800586733"
             className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-2xl font-bold text-purple-700 shadow-lg shadow-purple-900/30 transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-purple-900/40"
           >
             <svg

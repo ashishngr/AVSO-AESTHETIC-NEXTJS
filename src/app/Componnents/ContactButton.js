@@ -19,7 +19,7 @@ export const PhoneIcon = ({ className = "" }) => (
 const ContactButton = () => {
   return (
     <a
-      href="tel:+919741620538"
+      href="tel:+918800586733"
       aria-label="Call AVSO Aesthetic and Wellness"
       className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#6b21a8] text-white shadow-lg shadow-purple-900/40 transition-transform duration-200 hover:-translate-y-1"
     >

@@ -5,44 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import LandScapeLogo from "../../source/LandScapeLogo.png";
+import Image1 from "../../source/Image1.jpg";
+import Image2 from "../../source/Image2.jpg";
+import Image3 from "../../source/Image3.jpg";
 
-const SlideBackgroundClinic = ({ className = "", ...props }) => (
-  <svg
-    viewBox="0 0 800 600"
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="xMidYMid slice"
-    className={`h-full w-full ${className}`}
-    {...props}
-  >
-    <defs>
-      <linearGradient id="grad-purple-one" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#faf5ff" />
-        <stop offset="100%" stopColor="#ede9fe" />
-      </linearGradient>
-      <radialGradient id="radial-purple-one" cx="20%" cy="30%" r="60%">
-        <stop offset="0" stopColor="#c084fc" stopOpacity="0.35" />
-        <stop offset="1" stopColor="#a855f7" stopOpacity="0" />
-      </radialGradient>
-      <radialGradient id="radial-purple-two" cx="80%" cy="75%" r="55%">
-        <stop offset="0" stopColor="#bef264" stopOpacity="0.25" />
-        <stop offset="1" stopColor="#bef264" stopOpacity="0" />
-      </radialGradient>
-    </defs>
-    <rect width="800" height="600" fill="url(#grad-purple-one)" />
-    <circle cx="120" cy="140" r="220" fill="url(#radial-purple-one)" />
-    <circle cx="620" cy="460" r="260" fill="url(#radial-purple-two)" />
-    <path
-      d="M120 520C200 420 360 400 440 320C510 250 530 140 610 90C690 40 760 60 820 110V600H120Z"
-      fill="#f5d0fe"
-      fillOpacity="0.35"
-    />
-    <path
-      d="M-40 180C60 120 220 120 320 180C420 240 520 360 620 360C700 360 780 300 840 240V0H-40Z"
-      fill="#ede9fe"
-      fillOpacity="0.45"
-    />
-  </svg>
-);
 
 const SlideBackgroundRadiance = ({ className = "", ...props }) => (
   <svg
@@ -88,17 +54,78 @@ const HomePageCarousel = () => {
     () => [
       {
         badge: "Trusted Clinic",
-        heading: "AVSO AESTHETIC & WELLNESS",
+        heading: "Confidence begins with personalised care",
         paragraph:
-          "AVSO Aesthetic and Wellness is a trusted clinic in Noida offering advanced, science-backed aesthetic and wellness solutions. We specialize in safe, effective treatments designed to enhance natural beauty and overall well-being.",
+          "Discover a calm, boutique space where dermatologists, surgeons, and therapists craft layered plans for lasting beauty and wellness.",
+        points: [
+          "Board-certified expertise with medical-grade tech",
+          "Concierge-style guidance before, during, and after every visit",
+        ],
         image: LandScapeLogo,
+        highlight: {
+          title: "AVSO Experience",
+          description: "Holistic consults, transparent pricing, and post-care you can trust.",
+        },
       },
       {
-        badge: "Signature Treatments",
-        heading: "Get the Beauty Crown that you will never take off",
+        badge: "Skin Glow",
+        heading: "Healthy skin, radiant stories",
         paragraph:
-          "AVSO AESTHESTIC & WELLNESS helps you get smooth of contour irregularities, particularly a bump in the dorsum of the nose. Get a detailed assessment & personalised Rhinoplasty plan at Livglam Aesthetic clinic.",
+          "Hydration, collagen support, and pigment balance come together so your skin behaves beautifully under every spotlight.",
+        points: [
+          "Hydra facials, collagen induction, and glass-skin programs",
+          "Gentle routines that work around weddings, shoots, and travel",
+        ],
+        image: Image1,
+        highlight: {
+          title: "Glow Promise",
+          description: "Custom skin diaries mean you know exactly how to maintain the radiance at home.",
+        },
+      },
+      {
+        badge: "Hair Freedom",
+        heading: "Smooth confidence, zero guesswork",
+        paragraph:
+          "Laser protocols mapped to your skin tone and growth cycles so you glide through every outfit change.",
+        points: [
+          "Diode + cooling combinations for comfort-first care",
+          "Progress tracking each session so results stay predictable",
+        ],
+        image: Image2,
+        highlight: {
+          title: "No Downtime",
+          description: "Walk out ready for brunch, events, and boardrooms—the glow stays, the stubble doesn’t.",
+        },
+      },
+      {
+        badge: "Body Sculpt",
+        heading: "Celebrate strength, sculpted your way",
+        paragraph:
+          "From M-Sculpt muscle work to contouring, feel your posture, core, and confidence amplify session by session.",
+        points: [
+          "Supramaximal contractions build tone without sweat",
+          "Pair with nutrition + skin tightening for a 360° plan",
+        ],
+        image: Image3,
+        highlight: {
+          title: "Visible In 2 Weeks",
+          description: "Clients love the posture boost and wardrobe freedom that follow consistent sculpt sessions.",
+        },
+      },
+      {
+        badge: "Signature",
+        heading: "Every plan, artfully balanced",
+        paragraph:
+          "We blend science, artistry, and wellness so the world sees you—refreshed, not altered.",
+        points: [
+          "Multi-disciplinary reviews for complex concerns",
+          "Maintenance memberships that keep results effortless",
+        ],
         Background: SlideBackgroundRadiance,
+        highlight: {
+          title: "Let’s Begin",
+          description: "Book a 30-minute consultation and leave with a mapped-out glow blueprint.",
+        },
       },
     ],
     []
@@ -145,33 +172,65 @@ const HomePageCarousel = () => {
               aria-hidden={current !== i}
             >
               {/* Slide body */}
-              <div className="mx-auto max-w-[1440px] grid grid-cols-1 items-center gap-6 px-4 py-12 transition-opacity duration-700 ease-out sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12 lg:py-16">
-                {/* Left: content */}
-                <div className="order-2 flex flex-col gap-6 rounded-3xl bg-white/80 p-6 shadow-[0_35px_60px_-25px_rgba(124,58,237,0.35)] backdrop-blur-sm transition-all duration-700 lg:order-1 lg:p-8">
+              <div
+                className="relative mx-auto flex w-full max-w-[1440px] flex-col gap-10 overflow-hidden rounded-[40px] bg-slate-900 sm:px-6 sm:py-14 lg:flex-row lg:items-stretch lg:gap-0"
+              >
+                <div className="absolute inset-0">
+                  {s.image ? (
+                    <Image
+                      src={s.image}
+                      alt="AVSO aesthetic backdrop"
+                      fill
+                      priority={i === 0}
+                      className="object-cover"
+                      sizes="100vw"
+                    />
+                  ) : (
+                    <s.Background aria-hidden="true" className="h-full w-full" />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(147,51,234,0.45),transparent_55%)]" />
+                </div>
+
+                <div className="relative order-2 flex w-full flex-col gap-6 px-6 pb-12 pt-10 text-white sm:px-10 lg:order-1 lg:w-7/12 lg:pb-14 lg:pt-16">
+                  <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-black/30 blur-xl" aria-hidden />
+                  <div className="relative flex flex-col gap-6">
+                  {/* Left: content */}
                   {s.badge && (
-                    <span className="inline-flex items-center justify-center rounded-full bg-purple-100 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-purple-700">
+                    <span className="inline-flex items-center justify-center rounded-full bg-white/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white">
                       {s.badge}
                     </span>
                   )}
-                  <h2 className="text-3xl font-semibold leading-tight text-slate-900 sm:text-4xl lg:text-[34px]">
+                  <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-[36px]">
                     {s.heading}
                   </h2>
 
-                  <p className="text-base leading-relaxed text-slate-600 sm:text-lg">
+                  <p className="text-base leading-relaxed text-white/80 sm:text-lg">
                     {s.paragraph}
                   </p>
+
+                  {s.points && (
+                    <ul className="space-y-2 text-sm text-white/75 sm:text-base">
+                      {s.points.map((point) => (
+                        <li key={point} className="flex items-start gap-3">
+                          <span className="mt-1 h-2 w-2 rounded-full bg-white" aria-hidden />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
                   <div className="flex flex-wrap gap-3">
                     <Button
                       asChild
-                      className="bg-gradient-to-r from-purple-600 via-fuchsia-500 to-indigo-500 px-6 py-5 text-sm font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-purple-500/40 transition-transform duration-200 hover:-translate-y-0.5"
+                      className="bg-white px-6 py-5 text-sm font-bold uppercase tracking-[0.2em] text-purple-700 shadow-lg shadow-purple-500/30 transition-transform duration-200 hover:-translate-y-0.5"
                     >
                       <Link href="/Services">READ MORE</Link>
                     </Button>
                     <Button
                       asChild
                       variant="outline"
-                      className="border-purple-200 bg-white/70 px-6 py-5 text-sm font-bold uppercase tracking-[0.2em] text-purple-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-purple-500 hover:bg-purple-50"
+                      className="border-white/40 bg-white/10 px-6 py-5 text-sm font-bold uppercase tracking-[0.2em] text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-white hover:bg-white/20"
                     >
                       <Link href="/ContactUs">BOOK AN APPOINTMENT</Link>
                     </Button>
@@ -187,47 +246,27 @@ const HomePageCarousel = () => {
                         onClick={() => setCurrent(dotIdx)}
                         className={`h-1.5 rounded-full transition-all duration-300 ${
                           current === dotIdx
-                            ? "w-8 bg-gradient-to-r from-purple-600 to-indigo-500"
-                            : "w-3 bg-slate-300/70 hover:w-4 hover:bg-slate-400"
+                            ? "w-8 bg-white"
+                            : "w-3 bg-white/30 hover:w-4"
                         }`}
                       />
                     ))}
                   </div>
+                  </div>
                 </div>
 
-                {/* Right: illustration */}
-                <div className="order-1 lg:order-2">
-                  <div className="relative flex h-[220px] w-full items-center justify-center overflow-hidden rounded-[28px] border border-white/60 bg-white/55 p-4 shadow-[0_45px_100px_-40px_rgba(79,70,229,0.45)] sm:h-[300px] sm:p-6 md:h-[380px] lg:h-[520px] lg:p-8">
-                    {s.image ? (
-                      <>
-                        <Image
-                          src={s.image}
-                          alt="AVSO aesthetic experience"
-                          fill
-                          priority={i === 0}
-                          className="object-contain"
-                          sizes="(min-width: 1024px) 520px, (min-width: 768px) 400px, 90vw"
-                        />
-                        <div
-                          aria-hidden="true"
-                          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/0 via-white/25 to-purple-100/30"
-                        />
-                      </>
-                    ) : (
-                      <>
-                        <s.Background aria-hidden="true" className="absolute inset-0" />
-                        <div
-                          aria-hidden="true"
-                          className="absolute inset-0 bg-gradient-to-br from-white/15 via-white/10 to-purple-100/20"
-                        />
-                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(196,181,253,0.45),transparent_55%)]" />
-                      </>
-                    )}
-                    <div className="absolute inset-x-6 bottom-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white/90 px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-purple-700 shadow-lg">
-                      <span>Holistic Beauty Care</span>
-                      <span className="text-purple-400">Experience Calm</span>
+                {/* Right accent */}
+                <div className="relative order-1 flex w-full items-end justify-end px-6 pb-10 pt-16 sm:px-10 lg:order-2 lg:w-5/12">
+                  {s.highlight && (
+                    <div className="rounded-3xl bg-white/85 px-6 py-5 text-sm text-purple-900 shadow-2xl shadow-purple-500/30 backdrop-blur">
+                      <p className="text-xs font-semibold uppercase tracking-[0.35em] text-purple-600">
+                        {s.highlight.title}
+                      </p>
+                      <p className="mt-2 text-sm leading-6">
+                        {s.highlight.description}
+                      </p>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </article>

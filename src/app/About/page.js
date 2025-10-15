@@ -6,6 +6,9 @@ import Footer from "../Componnents/Footer";
 import ContactUsForm from "../Componnents/ContactUsForm";
 import Whatsapp from "../Componnents/Watsapp";
 import ContactButton from "../Componnents/ContactButton";
+import Image from "next/image";
+import LandScapeLogo from "../../source/LandScapeLogo.png";
+
 
 const ethosHighlights = [
   {
@@ -74,11 +77,13 @@ const About = () => {
                 confident, luminous you, nurtured with care at every step.
               </p>
             </div>
-            <div className="relative overflow-hidden rounded-3xl border border-purple-100/60 shadow-[0_35px_70px_-50px_rgba(107,33,168,0.45)]">
-              <img
-                src="/images/clinic/team-collaboration.jpg"
+            <div className="relative flex items-center justify-center rounded-3xl border border-purple-100/60 bg-white shadow-[0_35px_70px_-50px_rgba(107,33,168,0.45)]">
+              <Image
+                src={LandScapeLogo}
                 alt="AVSO team consulting with a client"
-                className="h-full w-full object-cover"
+                priority
+                className="h-auto w-full max-w-full object-contain"
+                sizes="(min-width: 1024px) 520px, 90vw"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/60 via-purple-700/20 to-transparent" />
               <div className="absolute bottom-6 left-6 rounded-2xl bg-white/80 px-4 py-3 text-sm font-semibold text-purple-900 shadow-lg shadow-purple-900/20">
